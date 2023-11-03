@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C70C6E42AF5495C00C9CA43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD195EB2AE6FC2500766FF9 /* ViewController.swift */; };
+		8C70C6E52AF5495C00C9CA43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD195EB2AE6FC2500766FF9 /* ViewController.swift */; };
+		8C70C6E72AF54A1500C9CA43 /* ConnectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C70C6E62AF54A1500C9CA43 /* ConnectManager.swift */; };
 		8CD195E82AE6FC2500766FF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD195E72AE6FC2500766FF9 /* AppDelegate.swift */; };
 		8CD195EA2AE6FC2500766FF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD195E92AE6FC2500766FF9 /* SceneDelegate.swift */; };
 		8CD195EC2AE6FC2500766FF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD195EB2AE6FC2500766FF9 /* ViewController.swift */; };
@@ -33,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8C70C6E62AF54A1500C9CA43 /* ConnectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConnectManager.swift; path = ../../../Desktop/MakePhoneAsknife/MakePhoneAsknife/ConnectManager.swift; sourceTree = "<group>"; };
 		8CD195E42AE6FC2500766FF9 /* MakePhoneAsknife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MakePhoneAsknife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CD195E72AE6FC2500766FF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CD195E92AE6FC2500766FF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 				8CD195E72AE6FC2500766FF9 /* AppDelegate.swift */,
 				8CD195E92AE6FC2500766FF9 /* SceneDelegate.swift */,
 				8CD195EB2AE6FC2500766FF9 /* ViewController.swift */,
+				8C70C6E62AF54A1500C9CA43 /* ConnectManager.swift */,
 				8CD195ED2AE6FC2500766FF9 /* Main.storyboard */,
 				8CD195F02AE6FC2700766FF9 /* Assets.xcassets */,
 				8CD195F22AE6FC2700766FF9 /* LaunchScreen.storyboard */,
@@ -233,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C70C6E72AF54A1500C9CA43 /* ConnectManager.swift in Sources */,
 				8CD195EC2AE6FC2500766FF9 /* ViewController.swift in Sources */,
 				8CD195E82AE6FC2500766FF9 /* AppDelegate.swift in Sources */,
 				8CD195EA2AE6FC2500766FF9 /* SceneDelegate.swift in Sources */,
@@ -243,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C70C6E42AF5495C00C9CA43 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C70C6E52AF5495C00C9CA43 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
