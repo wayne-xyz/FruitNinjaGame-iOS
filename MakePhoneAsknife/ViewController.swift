@@ -17,7 +17,7 @@
 //</plist>
 //
 // mac- browsing(discovering)
-// ios- adverstising
+// ios- adverstising..
 // update
 
 import UIKit
