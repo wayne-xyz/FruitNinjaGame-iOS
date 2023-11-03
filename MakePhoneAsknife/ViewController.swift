@@ -18,6 +18,7 @@
 //
 // mac- browsing(discovering)
 // ios- adverstising
+// update
 
 import UIKit
 import MultipeerConnectivity
@@ -39,14 +40,6 @@ class ViewController: UIViewController, ConnectManagerDelegate{
     }
     
 
-        
-
-    
-
-
-    
-   
-    
     
 
     @IBAction func showPopup(_ sender: UIButton) {
