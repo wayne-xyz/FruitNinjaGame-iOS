@@ -2,6 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_MacGameApp._tcp</string>
+		<string>_MacGameApp_udp</string>
+	</array>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>FruitNinja Need the Network for Communicate with Your Mac</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

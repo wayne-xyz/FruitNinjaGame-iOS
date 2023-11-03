@@ -3,7 +3,21 @@
 //  MakePhoneAsknife
 //
 //  Created by 黄云峰 on 10/23/23.
+////Info.plist
+//Key: Privacy — Local Network Usage Description
+//Value: FruitNinja needs to use your phone’s data to discover mac nearby
+//Bonjur-service
+//<?xml version="1.0" encoding="UTF-8"?>
+//<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+//<plist version="1.0">
+//<array>
+//    <string>_MacGameApp._tcp</string>
+//    <string>_MacGameApp_udp</string>
+//</array>
+//</plist>
 //
+// mac- browsing(discovering)
+// ios- adverstising
 
 import UIKit
 import MultipeerConnectivity
