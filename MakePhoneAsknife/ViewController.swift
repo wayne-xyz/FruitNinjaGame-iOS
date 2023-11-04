@@ -40,7 +40,7 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
         }
     }
     
-    // 添加CLLocationManager属性
+    // CLLocationManager properti
     var locationManager: CLLocationManager!
     
 
@@ -62,20 +62,20 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     }
     
     
-    // 添加变量来跟踪上一个位置
+    // property for last location
         var previousLocation: CLLocation?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 初始化CLLocationManager
+        // init CLLocationManager
         
-            locationManager = CLLocationManager()
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.startUpdatingLocation()
-            locationManager.startUpdatingHeading()
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        locationManager.startUpdatingHeading()
 
            
 
@@ -92,19 +92,18 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
 //            
 //        }
         if let targets = ConnectManager.shared.session?.connectedPeers,
-               let location = locationManager.location {
-                // 在这里，我使用了可选绑定 if let 来检查 targets 和 location 是否包含非空值
-                // 只有在两者都包含非空值的情况下，才会执行下面的代码
+            let location = locationManager.location {
+            //optional check targests and location
 
-                let xCoordinate = location.coordinate.latitude
-                let yCoordinate = location.coordinate.longitude
-                let speed = location.speed
+            let xCoordinate = location.coordinate.latitude
+            let yCoordinate = location.coordinate.longitude
+            let speed = location.speed
 
-                // 计算方向
+                // cacul the orientation
             let direction = calculateDirection(from: previousLocation!, to: location)
-                previousLocation = location // 更新前一个位置
+                previousLocation = location // update the previous location
 
-                // 构建位置信息字典
+                // save the location dictionary
                 let locationInfo: [String: Any] = [
                     "xCoordinate": xCoordinate,
                     "yCoordinate": yCoordinate,
@@ -113,10 +112,10 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
                 ]
 
             do {
-                // 将字典转换为 JSON 数据
+                // change the location to string
                 let jsonData = try JSONSerialization.data(withJSONObject: locationInfo, options: [])
                 if let jsonString = String(data: jsonData, encoding: .utf8) {
-                    // 发送 JSON 字符串
+                    // send string
                     ConnectManager.shared.send(message: jsonString, to: targets)
                 }
             } catch {
@@ -127,17 +126,17 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
           
     }
     func calculateDirection(from: CLLocation, to: CLLocation) -> String {
-        // 获取起始点和结束点的经度和纬度
+        // get start and end loction
         let fromLatitude = from.coordinate.latitude
         let fromLongitude = from.coordinate.longitude
         let toLatitude = to.coordinate.latitude
         let toLongitude = to.coordinate.longitude
 
-        // 计算经度差和纬度差
+        // caculate the dif
         let deltaLongitude = toLongitude - fromLongitude
         let deltaLatitude = toLatitude - fromLatitude
 
-        // 判断方向
+        // orentation
         if abs(deltaLongitude) > abs(deltaLatitude) {
             if deltaLongitude > 0 {
                 return "east"
