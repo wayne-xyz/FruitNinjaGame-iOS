@@ -26,7 +26,7 @@ import UIKit
 import MultipeerConnectivity
 import CoreLocation
 import CoreMotion
-
+import CoreHaptics
 
 class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManagerDelegate{
     
@@ -50,6 +50,13 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     
     func didReceiveMessage(_ message: String, from peer: MCPeerID) {
         //
+        print("recieve message\(message)")
+        if message=="hit"{
+            //vib
+            triggerHapticFeedback()
+        }else if message=="gameover"{
+            
+        }
     }
     
     func didChangeConnectionState(peer: MCPeerID, isConnected: Bool) {
@@ -170,6 +177,12 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
             }
         }
 
+    }
+    
+    
+    func triggerHapticFeedback() {
+        let generator = UIImpactFeedbackGenerator(style: .heavy)
+        generator.impactOccurred()
     }
 
 }
