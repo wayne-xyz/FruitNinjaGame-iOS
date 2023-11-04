@@ -27,16 +27,30 @@ import CoreLocation
 
 
 class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManagerDelegate{
+    
+    // for update the lebel text
+    @IBOutlet weak var conncetLable: UILabel!
+    
+
+        var LabelopenMacApp: String="Please open the Mac app to connect"
+        var Labelconnecting: String="Connecting"
+        var Labelconnected:String="Connected you can press start"
+        
+ 
+    
     func didReceiveMessage(_ message: String, from peer: MCPeerID) {
         //
     }
     
     func didChangeConnectionState(peer: MCPeerID, isConnected: Bool) {
-        //
+        //update the label to prompt the connect situation
+        conncetLable.text=Labelconnecting
         if isConnected{
-            
+            if let targets = ConnectManager.shared.session?.connectedPeers, !targets.isEmpty{
+                conncetLable.text=Labelconnected
+            }
         }else{
-            
+            conncetLable.text=LabelopenMacApp
         }
     }
     
@@ -45,7 +59,7 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     
 
     @IBAction func showPopup(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "Game Guide", message: "这是一段预设文本，用户无法编辑。", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Game Guide", message: "Just open the Mac app to connect, and press the start game to move your phone as the Shuriken, Go Ninja!", preferredStyle: .alert)
         
         // ﻿add a confirm button
         let okAction = UIAlertAction(title: "Let's go", style: .default, handler: nil)

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="﻿Fruit ﻿Ninja" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABn-rY-mON">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fruit ﻿Ninja" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABn-rY-mON">
                                 <rect key="frame" x="10" y="173" width="373" height="51"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <nil key="textColor"/>
@@ -38,13 +39,22 @@
                                     <action selector="startGameButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8RO-X4-Dob"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please open the Mac app to connect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsD-7g-VkB">
+                                <rect key="frame" x="39.333333333333343" y="515.66666666666663" width="314.33333333333326" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="rsD-7g-VkB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2EG-AM-5xs"/>
                             <constraint firstItem="QcH-Vc-isF" firstAttribute="centerX" secondItem="ABn-rY-mON" secondAttribute="centerX" id="3W6-5b-dF2"/>
                             <constraint firstItem="QcH-Vc-isF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="138.66666666666666" id="HxH-WZ-K5h"/>
+                            <constraint firstItem="rsD-7g-VkB" firstAttribute="top" secondItem="J3y-Nr-qWT" secondAttribute="bottom" constant="10" id="RVf-1H-JkS"/>
                             <constraint firstItem="J3y-Nr-qWT" firstAttribute="centerX" secondItem="ABn-rY-mON" secondAttribute="centerX" id="SbJ-HJ-Pbr"/>
+                            <constraint firstItem="rsD-7g-VkB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="U61-OY-OhP"/>
                             <constraint firstItem="ABn-rY-mON" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UxD-Rh-APv"/>
                             <constraint firstItem="ABn-rY-mON" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Yd6-K2-K1L"/>
                             <constraint firstItem="QcH-Vc-isF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gN5-o7-832"/>
@@ -53,37 +63,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="jEe-js-SDL" kind="show" identifier="DeviceDiscoveredSegue" id="Okz-g4-UBk"/>
+                        <outlet property="conncetLable" destination="rsD-7g-VkB" id="Lb9-W9-6Q3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
-        </scene>
-        <!--DeviceDiscoveredViewController-->
-        <scene sceneID="jr5-FM-wdo">
-            <objects>
-                <viewController title="DeviceDiscoveredViewController" id="jEe-js-SDL" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0J7-Sd-4bo">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="this is a tet label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dqe-sd-hW4">
-                                <rect key="frame" x="0.0" y="30" width="393" height="782"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="32S-Fi-gOc"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="G5X-mI-agd"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nbu-Na-8IU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="884.73282442748086" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
