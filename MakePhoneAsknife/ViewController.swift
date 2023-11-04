@@ -3,7 +3,8 @@
 //  MakePhoneAsknife
 //
 //  Created by 黄云峰 on 10/23/23.
-////Info.plist
+//setting description
+//Info.plist
 //Key: Privacy — Local Network Usage Description
 //Value: FruitNinja needs to use your phone’s data to discover mac nearby
 //Bonjur-service
@@ -36,8 +37,15 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     var LabelopenMacApp: String="Please open the Mac app to connect"
     var Labelconnecting: String="Connecting"
     var Labelconnected:String="Connected you can press start"
+    var LabelGaming:String="Gameing"
         
- 
+    enum gameStatus {
+        case unconnect // lost game
+        case Gaming //start game the status
+        case connect //connect succed
+    }
+    
+    var status:gameStatus=gameStatus.unconnect // default
     
     func didReceiveMessage(_ message: String, from peer: MCPeerID) {
         //
@@ -54,20 +62,21 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
             if let targets = ConnectManager.shared.session?.connectedPeers, !targets.isEmpty{
                 DispatchQueue.main.async {
                     // Perform UI updates on the main thread
+                    self.status=gameStatus.connect
                     self.conncetLable.text=self.Labelconnected
                 }
                 
             }
         }else{
             DispatchQueue.main.async {
+                self.status=gameStatus.unconnect
                 // Perform UI updates on the main thread
                 self.conncetLable.text=self.LabelopenMacApp
             }
         }
     }
     
-    // CLLocationManager properti
-    var locationManager: CLLocationManager!
+
 
     @IBAction func showPopup(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Game Guide", message: "Just open the Mac app to connect, and press the start game to move your phone as the Shuriken, Go Ninja!", preferredStyle: .alert)
@@ -85,8 +94,9 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     // start game
     @IBAction func startGameButtonTapped(_ sender: UIButton) {
         if let targets = ConnectManager.shared.session?.connectedPeers, !targets.isEmpty{
-            
-            
+            self.status=gameStatus.Gaming
+            startAccelerometerUpdates()
+            self.conncetLable.text=LabelGaming
             
         }else{
             conncetLable.text=LabelopenMacApp
@@ -101,22 +111,11 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     // for init the conncet and motion
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // init CLLocationManager
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-        locationManager.startUpdatingHeading()
 
         ConnectManager.shared.delegate = self
         ConnectManager.shared.start()
         
        
-        // for test
-        //_ = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(sendMassage), userInfo: nil, repeats: true)
-        
-        startAccelerometerUpdates()
     }
     
     func startAccelerometerUpdates() {
@@ -153,84 +152,19 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     }
     
     
-    
+    //send message
     func sendMassage(_ message:String){
         print("Start sending ")
         if   let targets=ConnectManager.shared.session?.connectedPeers{
             ConnectManager.shared.send(message: message, to: targets)
         }else{
             print("Send failed")
-        }
-        
-        
-          
-    }
-    
-    
-    // it's not gps
-    func originalSendMessage(){
-        if let targets = ConnectManager.shared.session?.connectedPeers,
-            let location = locationManager.location {
-            //optional check targests and location
-
-            let xCoordinate = location.coordinate.latitude
-            let yCoordinate = location.coordinate.longitude
-            let speed = location.speed
-
-                // cacul the orientation
-            let direction = calculateDirection(from: previousLocation!, to: location)
-                previousLocation = location // update the previous location
-
-                // save the location dictionary
-            let locationInfo: [String: Any] = [
-                    "xCoordinate": xCoordinate,
-                    "yCoordinate": yCoordinate,
-                    "direction": direction,
-                    "speed": speed
-            ]
-            print(locationInfo)
-            do {
-                // change the location to string
-                let jsonData = try JSONSerialization.data(withJSONObject: locationInfo, options: [])
-                if let jsonString = String(data: jsonData, encoding: .utf8) {
-                    // send string
-                    ConnectManager.shared.send(message: jsonString, to: targets)
-                    print("send succefully\(jsonString)")
-                }
-            } catch {
-                print("Error encoding locationInfo: \(error)")
-            }
-                
-        }else{
-            conncetLable.text=LabelopenMacApp
-        }
-    }
-    
-    func calculateDirection(from: CLLocation, to: CLLocation) -> String {
-        // get start and end loction
-        let fromLatitude = from.coordinate.latitude
-        let fromLongitude = from.coordinate.longitude
-        let toLatitude = to.coordinate.latitude
-        let toLongitude = to.coordinate.longitude
-
-        // caculate the dif
-        let deltaLongitude = toLongitude - fromLongitude
-        let deltaLatitude = toLatitude - fromLatitude
-
-        // orentation
-        if abs(deltaLongitude) > abs(deltaLatitude) {
-            if deltaLongitude > 0 {
-                return "east"
-            } else {
-                return "west"
-            }
-        } else {
-            if deltaLatitude > 0 {
-                return "north"
-            } else {
-                return "south"
+            DispatchQueue.main.async {
+                // Perform UI updates on the main thread
+                self.conncetLable.text=self.LabelopenMacApp
             }
         }
+
     }
 
 }
