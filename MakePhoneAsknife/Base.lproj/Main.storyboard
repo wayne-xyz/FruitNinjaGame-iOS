@@ -45,12 +45,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shuriken" translatesAutoresizingMaskIntoConstraints="NO" id="vS3-Xr-5Ip">
+                                <rect key="frame" x="219.66666666666663" y="660.66666666666663" width="157.33333333333337" height="157.33333333333337"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vS3-Xr-5Ip" secondAttribute="height" multiplier="1:1" id="cG9-UI-XC4"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rsD-7g-VkB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2EG-AM-5xs"/>
                             <constraint firstItem="QcH-Vc-isF" firstAttribute="centerX" secondItem="ABn-rY-mON" secondAttribute="centerX" id="3W6-5b-dF2"/>
+                            <constraint firstItem="vS3-Xr-5Ip" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7bb-zT-8TT"/>
                             <constraint firstItem="QcH-Vc-isF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="138.66666666666666" id="HxH-WZ-K5h"/>
                             <constraint firstItem="rsD-7g-VkB" firstAttribute="top" secondItem="J3y-Nr-qWT" secondAttribute="bottom" constant="10" id="RVf-1H-JkS"/>
                             <constraint firstItem="J3y-Nr-qWT" firstAttribute="centerX" secondItem="ABn-rY-mON" secondAttribute="centerX" id="SbJ-HJ-Pbr"/>
@@ -59,6 +66,8 @@
                             <constraint firstItem="ABn-rY-mON" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Yd6-K2-K1L"/>
                             <constraint firstItem="QcH-Vc-isF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="gN5-o7-832"/>
                             <constraint firstItem="ABn-rY-mON" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="114" id="jHX-Eg-kEs"/>
+                            <constraint firstItem="vS3-Xr-5Ip" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.4" id="jfV-2S-f3b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vS3-Xr-5Ip" secondAttribute="trailing" constant="16" id="jgs-wH-YG1"/>
                             <constraint firstItem="J3y-Nr-qWT" firstAttribute="top" secondItem="QcH-Vc-isF" secondAttribute="bottom" constant="27" id="qTJ-7Q-rgy"/>
                         </constraints>
                     </view>
@@ -73,6 +82,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="shuriken" width="2048" height="2048"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
