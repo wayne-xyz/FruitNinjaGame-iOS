@@ -33,7 +33,8 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     // for update the lebel text
     @IBOutlet weak var conncetLable: UILabel!
     
-
+    @IBOutlet weak var startButton: UIButton!
+    
     var LabelopenMacApp: String="Please open the Mac app to connect"
     var Labelconnecting: String="Connecting"
     var Labelconnected:String="Connected you can press start"
@@ -64,6 +65,7 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
                     // Perform UI updates on the main thread
                     self.status=gameStatus.connect
                     self.conncetLable.text=self.Labelconnected
+                    self.startButton.isEnabled=true
                 }
                 
             }
@@ -114,6 +116,7 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
 
         ConnectManager.shared.delegate = self
         ConnectManager.shared.start()
+        startButton.isEnabled=false
         
        
     }
