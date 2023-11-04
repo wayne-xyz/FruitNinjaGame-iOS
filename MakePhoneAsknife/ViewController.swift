@@ -141,7 +141,7 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
                         // Respond to the detected movement
                         print("Device is moving!")
                         print("x:\(xAcceleration),y:\(yAcceleration),z:\(zAcceleration)")
-                        var message="\(xAcceleration),\(yAcceleration),\(zAcceleration)"
+                        let message="\(xAcceleration),\(yAcceleration),\(zAcceleration)"
                         self.sendMassage(message)
                         
                     }
