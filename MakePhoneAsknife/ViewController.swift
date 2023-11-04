@@ -57,7 +57,7 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     // CLLocationManager properti
     var locationManager: CLLocationManager!
     
-
+    
     @IBAction func showPopup(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Game Guide", message: "Just open the Mac app to connect, and press the start game to move your phone as the Shuriken, Go Ninja!", preferredStyle: .alert)
         
@@ -69,10 +69,17 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
         present(alertController, animated: true, completion: nil)
     }
     
-    
+ 
+
+    // start game
     @IBAction func startGameButtonTapped(_ sender: UIButton) {
-     
-        
+        if let targets = ConnectManager.shared.session?.connectedPeers, !targets.isEmpty{
+            
+            let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(sendMassage), userInfo: nil, repeats: true)
+            
+        }else{
+            conncetLable.text=LabelopenMacApp
+        }
     }
     
     
@@ -91,14 +98,14 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
         locationManager.startUpdatingLocation()
         locationManager.startUpdatingHeading()
 
-           
-
         ConnectManager.shared.delegate = self
         ConnectManager.shared.start()
         
+        let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(sendMassage), userInfo: nil, repeats: true)
+        
     }
     
-    func sendMassage(){
+    @objc func sendMassage(){
 //        
 //        if   let targets=ConnectManager.shared.session?.connectedPeers{
 //            ConnectManager.shared.send(message: "hi i am ios app", to: targets)
@@ -135,7 +142,7 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
             } catch {
                 print("Error encoding locationInfo: \(error)")
             }
-
+                
             }
           
     }
