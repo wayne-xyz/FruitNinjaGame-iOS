@@ -97,6 +97,8 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     @IBAction func startGameButtonTapped(_ sender: UIButton) {
         if let targets = ConnectManager.shared.session?.connectedPeers, !targets.isEmpty{
             self.status=gameStatus.Gaming
+            sendMassage("Start")
+            
             startAccelerometerUpdates()
             self.conncetLable.text=LabelGaming
             
