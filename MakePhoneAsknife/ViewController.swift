@@ -63,7 +63,7 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     
     
     // property for last location
-        var previousLocation: CLLocation?
+    var previousLocation: CLLocation?
     
     
     override func viewDidLoad() {
@@ -125,6 +125,8 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
             }
           
     }
+    
+    
     func calculateDirection(from: CLLocation, to: CLLocation) -> String {
         // get start and end loction
         let fromLatitude = from.coordinate.latitude

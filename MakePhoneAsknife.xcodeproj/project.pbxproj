@@ -420,6 +420,7 @@
 				DEVELOPMENT_TEAM = F69WJ27LN4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MakePhoneAsknife/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FruitNinja;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -448,6 +449,7 @@
 				DEVELOPMENT_TEAM = F69WJ27LN4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MakePhoneAsknife/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FruitNinja;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
