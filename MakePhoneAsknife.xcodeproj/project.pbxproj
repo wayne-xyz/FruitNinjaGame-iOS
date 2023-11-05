@@ -16,6 +16,7 @@
 		8CD195EF2AE6FC2500766FF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CD195ED2AE6FC2500766FF9 /* Main.storyboard */; };
 		8CD195F12AE6FC2700766FF9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CD195F02AE6FC2700766FF9 /* Assets.xcassets */; };
 		8CD195F42AE6FC2700766FF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CD195F22AE6FC2700766FF9 /* LaunchScreen.storyboard */; };
+		CCEA7F2F2AF7432400BAD4B4 /* ConnectManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEA7F2E2AF7432400BAD4B4 /* ConnectManager2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		8CD195F52AE6FC2700766FF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CD195FA2AE6FC2800766FF9 /* MakePhoneAsknifeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakePhoneAsknifeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CD196042AE6FC2800766FF9 /* MakePhoneAsknifeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakePhoneAsknifeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCEA7F2E2AF7432400BAD4B4 /* ConnectManager2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectManager2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				8CD195E92AE6FC2500766FF9 /* SceneDelegate.swift */,
 				8CD195EB2AE6FC2500766FF9 /* ViewController.swift */,
 				8C70C6E62AF54A1500C9CA43 /* ConnectManager.swift */,
+				CCEA7F2E2AF7432400BAD4B4 /* ConnectManager2.swift */,
 				8CD195ED2AE6FC2500766FF9 /* Main.storyboard */,
 				8CD195F02AE6FC2700766FF9 /* Assets.xcassets */,
 				8CD195F22AE6FC2700766FF9 /* LaunchScreen.storyboard */,
@@ -239,6 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C70C6E72AF54A1500C9CA43 /* ConnectManager.swift in Sources */,
+				CCEA7F2F2AF7432400BAD4B4 /* ConnectManager2.swift in Sources */,
 				8CD195EC2AE6FC2500766FF9 /* ViewController.swift in Sources */,
 				8CD195E82AE6FC2500766FF9 /* AppDelegate.swift in Sources */,
 				8CD195EA2AE6FC2500766FF9 /* SceneDelegate.swift in Sources */,
