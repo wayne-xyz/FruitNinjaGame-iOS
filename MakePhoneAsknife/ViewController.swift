@@ -142,6 +142,7 @@ class ViewController: UIViewController, ConnectManager2Delegate{
         // Connect to the WebSocket server (only once)
         ConnectManager2.shared.delegate=self
         ConnectManager2.shared.connect()
+        ConnectManager2.shared.send(message: "iPhone online")
     }
     
     func startAccelerometerUpdates() {
