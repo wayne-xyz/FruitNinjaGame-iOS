@@ -116,16 +116,14 @@ class ViewController: UIViewController, ConnectManager2Delegate{
 
     // start game
     @IBAction func startGameButtonTapped(_ sender: UIButton) {
-        if let targets = ConnectManager.shared.session?.connectedPeers, !targets.isEmpty{
+        
             self.status=gameStatus.Gaming
-            sendMassage("Start")
+        sendMessage(mes: "Start")
             
             startAccelerometerUpdates()
             self.conncetLable.text=LabelGaming
             
-        }else{
-            conncetLable.text=LabelopenMacApp
-        }
+      
     }
     
     
@@ -138,7 +136,7 @@ class ViewController: UIViewController, ConnectManager2Delegate{
         super.viewDidLoad()
 
         
-        let serverURL = URL(string: "ws://127.0.0.1:8888//websocket")!   // use my local server 
+        let serverURL = URL(string: "ws://192.168.50.247:8888/websocket")!   // use my mac ip which host the socket server
         // Set up the ConnectManager2 with a URL
         ConnectManager2.shared.configure(with: serverURL)
         // Connect to the WebSocket server (only once)
@@ -167,7 +165,7 @@ class ViewController: UIViewController, ConnectManager2Delegate{
                         print("Device is moving!")
                         print("x:\(xAcceleration),y:\(yAcceleration),z:\(zAcceleration)")
                         let message="\(xAcceleration),\(yAcceleration),\(zAcceleration)"
-                        self.sendMassage(message)
+                        self.sendMessage(mes: message)
                         
                     }
                 }
@@ -179,9 +177,14 @@ class ViewController: UIViewController, ConnectManager2Delegate{
           motionManager.stopAccelerometerUpdates()
     }
     
+    // new send messsage by the socket version
+    func sendMessage(mes:String){
+        ConnectManager2.shared.send(message: mes)
+    }
     
-    //send message
-    func sendMassage(_ message:String){
+    
+    //send message by the p2p version
+    func sendMassageByMultipeerConncety(_ message:String){
         print("Start sending ")
         if   let targets=ConnectManager.shared.session?.connectedPeers{
             ConnectManager.shared.send(message: message, to: targets)
