@@ -28,7 +28,19 @@ import CoreLocation
 import CoreMotion
 import CoreHaptics
 
-class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManagerDelegate{
+class ViewController: UIViewController, ConnectManager2Delegate{
+    func websocketDidConnect() {
+        changeConnectionState(isConnected: true)
+    }
+    
+    func websocketDidDisconnect(error: Error?) {
+        changeConnectionState(isConnected: false)
+    }
+    
+    func websocketDidReceiveMessage(text: String) {
+        receiveMessage(message: text)
+    }
+    
     
     // for update the lebel text
     @IBOutlet weak var conncetLable: UILabel!
@@ -48,8 +60,9 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     
     var status:gameStatus=gameStatus.unconnect // default
     
-    func didReceiveMessage(_ message: String, from peer: MCPeerID) {
-        //
+
+    
+    func receiveMessage(message:String){
         print("recieve message\(message)")
         if message=="hit"{
             //vib
@@ -59,7 +72,7 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
         }
     }
     
-    func didChangeConnectionState(peer: MCPeerID, isConnected: Bool) {
+    func changeConnectionState(isConnected:Bool){
         //update the label to prompt the connect situation
         DispatchQueue.main.async {
             // Perform UI updates on the main thread
@@ -84,6 +97,7 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
             }
         }
     }
+
     
 
 
@@ -123,11 +137,13 @@ class ViewController: UIViewController, ConnectManagerDelegate,CLLocationManager
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        ConnectManager.shared.delegate = self
-        ConnectManager.shared.start()
-        startButton.isEnabled=false
         
-       
+        let serverURL = URL(string: "ws://127.0.0.1:8888//websocket")!   // use my local server 
+        // Set up the ConnectManager2 with a URL
+        ConnectManager2.shared.configure(with: serverURL)
+        // Connect to the WebSocket server (only once)
+        ConnectManager2.shared.delegate=self
+        ConnectManager2.shared.connect()
     }
     
     func startAccelerometerUpdates() {
